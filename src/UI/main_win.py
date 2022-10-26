@@ -34,14 +34,16 @@ class Main_Win(object):
         ]
 
     def popup():
-        layout = [
-            [psg.Text('You can\'t go here this place is already taken!!')],
-            [psg.Button('OK')]
-        ]
+        def make_popup():
+            new_layout = [
+                [psg.Text('You can\'t go here this place is already taken!!')],
+                [psg.Button('OK', key='-OK-')]
+            ]
+            return psg.Window(title='Stop', layout=new_layout)
+        msg = make_popup()
         while True:
-            msg = psg.Window(title='Stop', layout=layout)
-            event = msg.read()
-            if event == 'OK' or event == psg.WINDOW_CLOSED:
+            event, value = msg.read()
+            if event == '-OK-' or event == psg.WINDOW_CLOSED or event == psg.WIN_CLOSED:
                 break
         msg.close()
 

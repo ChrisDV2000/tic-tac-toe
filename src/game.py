@@ -14,8 +14,7 @@ class Game(object):
     @staticmethod
     def move(self, space):
         if space not in self.spaces:
-            # Main_Win.popup()
-            pass
+            Main_Win.popup()
         else:
             self.spaces.remove(space)
 
