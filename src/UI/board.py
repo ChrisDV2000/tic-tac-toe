@@ -50,7 +50,6 @@ class Board(object):
         self.layout = [
             [
                 [psg.Text(' '.join([X, ', ', O]))],
-                # [psg.Text(O)],
                 [psg.Text('X\'s go first')]
             ],
             [
