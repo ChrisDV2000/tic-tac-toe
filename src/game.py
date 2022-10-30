@@ -1,5 +1,6 @@
 import PySimpleGUI as psg
 import random
+from UI.board import Board
 
 from UI.main_win import Main_Win
 
@@ -12,12 +13,17 @@ class Game(object):
         ]
     
     @staticmethod
-    def move(self, space):
-        if space not in self.spaces:
-            # Main_Win.popup()
-            pass
+    def move(self):
+        if self.event not in self.game.spaces:
+            Main_Win.popup()
         else:
-            self.spaces.remove(space)
+            self.game.spaces.remove(self.event)
+            self.game.num_turns += 1
+            Board.update_tile(self)
+            if self.game.turn == 'X' and self.game.num_turns != 0:
+                self.game.turn = 'O'
+            elif self.game.turn == 'O':
+                self.game.turn = 'X'
 
     def players(self, p1='Player 1', p2='Player 2'):       
         players = [p1, p2]
