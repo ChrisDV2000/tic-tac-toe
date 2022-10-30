@@ -4,28 +4,32 @@ class Board(object):
     def __init__(self, game, X, O) -> None:
         self.board = self.window(X, O)
         self.game = game
+        self.game.num_turns = 0
+        self.game.turn = 'X'
         while True:
+            # if self.game.num_turns == 9:
+            #     break
             self.event, self.values = self.board.read()
             if self.event == psg.WINDOW_CLOSED:
                 break
             if self.event == 'r1c1':
-                self.game.move(self.game, self.event)
+                self.game.move(self)
             elif self.event == 'r2c1':
-                self.game.move(self.game, self.event)
+                self.game.move(self)
             elif self.event == 'r3c1':
-                self.game.move(self.game, self.event)
+                self.game.move(self)
             elif self.event == 'r1c2':
-                self.game.move(self.game, self.event)
+                self.game.move(self)
             elif self.event == 'r2c2':
-                self.game.move(self.game, self.event)
+                self.game.move(self)
             elif self.event == 'r3c2':
-                self.game.move(self.game, self.event)
+                self.game.move(self)
             elif self.event == 'r1c3':
-                self.game.move(self.game, self.event)
+                self.game.move(self)
             elif self.event == 'r2c3':
-                self.game.move(self.game, self.event)
+                self.game.move(self)
             elif self.event == 'r3c3':
-                self.game.move(self.game, self.event)
+                self.game.move(self)
 
         self.board.close()
 
@@ -63,6 +67,10 @@ class Board(object):
     def window(self, X, O):
         self.setup_layout(X, O)
         return psg.Window(title='Tic-Tac-Toe', layout=self.layout, margins=(100, 100))
+
+    @staticmethod
+    def update_tile(self):
+        self.board[self.event].update(self.game.turn)
         
 
 if __name__ == '__main__':
