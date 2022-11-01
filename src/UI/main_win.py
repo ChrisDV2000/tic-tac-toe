@@ -9,6 +9,7 @@ class Main_Win(object):
             if self.event == psg.WINDOW_CLOSED:
                 break
             if self.event == 'Start Game':
+                self.window.close()
                 X, O = game.players(self.values['P1'], self.values['P2'])
                 self.board = Board(game, X, O)
                 break
