@@ -14,22 +14,35 @@ class Board(object):
                 break
             if self.event == 'r1c1':
                 self.game.move(self)
+                result = self.game.check_win(self)
             elif self.event == 'r2c1':
                 self.game.move(self)
+                result = self.game.check_win(self)
             elif self.event == 'r3c1':
                 self.game.move(self)
+                result = self.game.check_win(self)
             elif self.event == 'r1c2':
                 self.game.move(self)
+                result = self.game.check_win(self)
             elif self.event == 'r2c2':
                 self.game.move(self)
+                result = self.game.check_win(self)
             elif self.event == 'r3c2':
                 self.game.move(self)
+                result = self.game.check_win(self)
             elif self.event == 'r1c3':
                 self.game.move(self)
+                result = self.game.check_win(self)
             elif self.event == 'r2c3':
                 self.game.move(self)
+                result = self.game.check_win(self)
             elif self.event == 'r3c3':
                 self.game.move(self)
+                result = self.game.check_win(self)
+            if result != 0:
+                self.board.close()
+                print(f'Player {result} is the winner')
+                break
 
         self.board.close()
 
