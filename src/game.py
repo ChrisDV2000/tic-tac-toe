@@ -84,8 +84,7 @@ class Game(object):
         if result:
             return result
         return self.game.check_diagonals(self.game.game_board)
-        
-    # https://stackoverflow.com/questions/39922967/python-determine-tic-tac-toe-winner
+    
 
     
         
